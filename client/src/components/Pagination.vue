@@ -1,8 +1,8 @@
 <template>
   <tr class="pagination">
 		<td>
-			<button @click="pageSwitch('back')">&laquo;</button>
 			<button @click="pageSwitch('next')">&raquo;</button>
+			<button @click="pageSwitch('back')">&laquo;</button>
 		</td>
 	</tr>
 </template>
@@ -23,14 +23,16 @@ export default {
 
 <style scoped>
 td {
-  border: 1px solid #dddddd;
+  border: 2px solid #ffff66;
+	
   text-align: right;
 }
 /* Pagination links */
 .pagination button {
-  color: black;
-  float: left;
+  color: #ffff66;
+  float: right;
   padding: 8px 16px;
+	font-size: large;
   text-decoration: none;
 	border: none;
 	background: none;
@@ -44,5 +46,5 @@ td {
 }*/
 
 /* Add a grey background color on mouse-over */
-.pagination button:hover {background-color: #ddd;}
+.pagination button:hover {background-color: rgb(36, 35, 35);}
 </style>

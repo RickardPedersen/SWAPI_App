@@ -78,12 +78,6 @@ export default {
 <style scoped>
 table {
   border-collapse: collapse;
-  width: 300px;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
+  width: 350px;
 }
 </style>

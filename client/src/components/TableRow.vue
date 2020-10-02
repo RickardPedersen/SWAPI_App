@@ -54,9 +54,9 @@ export default {
 }
 
 td {
-  border: 1px solid #dddddd;
+  border: 2px solid #ffff66;
   text-align: left;
-  padding: 10px;
+  padding: 15px;
 }
 
 .nameContainer {
