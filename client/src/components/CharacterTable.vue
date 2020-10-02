@@ -1,6 +1,6 @@
 <template>
-  <table class="characterList">
-    <TableHeader @search="search" />
+	<table class="characterList">
+		<TableHeader @search="search" />
 
 		<tbody>
 			<template v-for="(character, index) in characters">
@@ -11,7 +11,7 @@
 		<tfoot>
 			<Pagination @back="previousPage" @next="nextPage" />
 		</tfoot>
-  </table>
+	</table>
 </template>
 
 <script>
@@ -21,21 +21,21 @@ import TableRow from '../components/TableRow'
 import Pagination from '../components/Pagination'
 
 export default {
-  name: 'CharacterTable',
-  data() {
-    return {
+	name: 'CharacterTable',
+	data() {
+		return {
 			characters: [],
 			page: 1,
 			count: 0,
-			searchString: ''
-    }
-  },
-  components: {
-    TableHeader,
+			searchString: '',
+		}
+	},
+	components: {
+		TableHeader,
 		TableRow,
-		Pagination
-  },
-  created() {
+		Pagination,
+	},
+	created() {
 		this.updateTable(this.page, this.searchString)
 	},
 	methods: {
@@ -63,17 +63,17 @@ export default {
 			this.closeRows()
 		},
 		closeRows() {
-			for(const row of this.$refs.rows) {
+			for (const row of this.$refs.rows) {
 				row.closeInfo()
 			}
-		}
-	}
+		},
+	},
 }
 </script>
 
 <style scoped>
 table {
-  border-collapse: collapse;
-  width: 350px;
+	border-collapse: collapse;
+	width: 350px;
 }
 </style>
