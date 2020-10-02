@@ -15,7 +15,7 @@ export default {
 	},
 	methods: {
 		pageSwitch(val) {
-			this.$emit(val, 'someValue')
+			this.$emit(val)
 		}
 	}
 }

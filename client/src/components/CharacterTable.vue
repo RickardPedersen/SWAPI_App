@@ -1,6 +1,7 @@
 <template>
   <table class="characterList">
-    <TableHeader />
+		
+    <TableHeader @search="search" />
     <template v-for="(character, index) in characters">
       <TableRow :key="index" :characterName="character.name" />
     </template>
@@ -20,7 +21,8 @@ export default {
     return {
 			characters: [],
 			page: 1,
-			count: 0
+			count: 0,
+			searchString: ''
     }
   },
   components: {
@@ -29,26 +31,31 @@ export default {
 		Pagination
   },
   created() {
-		this.updateTable(this.page)
+		this.updateTable(this.page, this.searchString)
 	},
 	methods: {
 		nextPage() {
 			if (this.page < Math.ceil(this.count / 10)) {
-				this.updateTable(++this.page)
+				this.updateTable(++this.page, this.searchString)
 			}
 		},
 		previousPage() {
 			if (this.page > 1) {
-				this.updateTable(--this.page)
+				this.updateTable(--this.page, this.searchString)
 			}
 		},
-		async updateTable(page) {
+		async updateTable(page = 1, search = '') {
 			console.log('Page: ' + this.page)
-			const data = await Requests.getCharacters(page)
+			const data = await Requests.getCharacters(page, search)
 			this.characters = data.results
 			this.count = data.count
 			console.log(this.characters)
 			console.log(this.count)
+		},
+		search(value = '') {
+			this.searchString = value
+			this.page = 1
+			this.updateTable(this.page, this.searchString)
 		}
 	}
 }
