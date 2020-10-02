@@ -6,5 +6,7 @@ const port = process.env.PORT || 7070
 app.use(express.static('public'))
 
 app.listen(port, () => {
-	console.log(`Server listening at http://localhost:${port}`)
+	console.log('Server running at:')
+	console.log(`- Port:  ${port}`)
+	console.log(`- Local: http://localhost:${port}`)
 })
