@@ -1,11 +1,16 @@
 <template>
   <table class="characterList">
-		
     <TableHeader @search="search" />
-    <template v-for="(character, index) in characters">
-      <TableRow :key="index" :characterName="character.name" />
-    </template>
-		<Pagination @back="previousPage" @next="nextPage" />
+
+		<tbody>
+			<template v-for="(character, index) in characters">
+				<TableRow ref="rows" :key="index" :character="character" />
+			</template>
+		</tbody>
+
+		<tfoot>
+			<Pagination @back="previousPage" @next="nextPage" />
+		</tfoot>
   </table>
 </template>
 
@@ -37,11 +42,17 @@ export default {
 		nextPage() {
 			if (this.page < Math.ceil(this.count / 10)) {
 				this.updateTable(++this.page, this.searchString)
+				for(const row of this.$refs.rows) {
+					row.closeInfo()
+				}
 			}
 		},
 		previousPage() {
 			if (this.page > 1) {
 				this.updateTable(--this.page, this.searchString)
+				for(const row of this.$refs.rows) {
+					row.closeInfo()
+				}
 			}
 		},
 		async updateTable(page = 1, search = '') {
@@ -56,6 +67,9 @@ export default {
 			this.searchString = value
 			this.page = 1
 			this.updateTable(this.page, this.searchString)
+			for(const row of this.$refs.rows) {
+				row.closeInfo()
+			}
 		}
 	}
 }
@@ -64,7 +78,7 @@ export default {
 <style scoped>
 table {
   border-collapse: collapse;
-  width: 24%;
+  width: 300px;
 }
 
 td, th {

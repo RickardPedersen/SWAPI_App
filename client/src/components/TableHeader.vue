@@ -1,10 +1,12 @@
 <template>
-  <tr>
-      <th>
-				Star Wars Characters
-				<input @input="search" placeholder="Search" type="text" v-model="searchString">
-			</th>
-  </tr>
+	<thead>
+		<tr>
+				<th>
+					Star Wars Characters
+					<input @input="search" placeholder="Search" type="text" v-model="searchString">
+				</th>
+		</tr>
+	</thead>
 </template>
 
 <script>

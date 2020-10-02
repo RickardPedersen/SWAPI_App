@@ -1,6 +1,21 @@
 <template>
   <tr>
-      <td>{{ characterName }}</td>
+    <td @click="show = !show">
+			<div class="nameContainer">
+				{{ character.name }}
+			</div>
+			<transition name="fade">
+				<div class="moreInfo" v-if="show">
+					<strong>Birth Year: </strong> {{ character.birth_year }}
+					<br>
+					<strong>Gender: </strong> {{ character.gender }}
+					<br>
+					<strong>Height: </strong> {{ character.height }}
+					<br>
+					<strong> Mass: </strong> {{ character.mass }}
+				</div>
+			</transition>
+		</td>
   </tr>
 </template>
 
@@ -8,15 +23,43 @@
 export default {
   name: 'TableRow',
   props: {
-      characterName: String
-  }
+    character: Object
+	},
+	data() {
+		return {
+			show: false
+		}
+	},
+	created() {
+		console.log(this.character)
+	},
+	methods: {
+		closeInfo() {
+			this.show = false
+		}
+	}
 }
 </script>
 
 <style scoped>
+.fade-enter-active, .fade-leave-active {
+  transition: all .3s ease;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+.moreInfo {
+	padding: 10px;
+}
+
 td {
   border: 1px solid #dddddd;
   text-align: left;
-  padding: 8px;
+  padding: 10px;
+}
+
+.nameContainer {
+	font-weight: bold;
 }
 </style>
