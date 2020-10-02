@@ -30,9 +30,6 @@ export default {
 			show: false
 		}
 	},
-	created() {
-		console.log(this.character)
-	},
 	methods: {
 		closeInfo() {
 			this.show = false
@@ -45,6 +42,7 @@ export default {
 .fade-enter-active, .fade-leave-active {
   transition: all .3s ease;
 }
+
 .fade-enter, .fade-leave-to {
   opacity: 0;
 }

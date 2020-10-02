@@ -6,13 +6,11 @@
 </template>
 
 <script>
-//import HelloWorld from './components/HelloWorld.vue'
 import CharacterTable from './components/CharacterTable.vue'
 
 export default {
   name: 'App',
   components: {
-    //HelloWorld
     CharacterTable
   }
 }

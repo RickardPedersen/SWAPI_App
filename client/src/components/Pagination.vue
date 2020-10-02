@@ -10,9 +10,6 @@
 <script>
 export default {
   name: 'Pagination',
-  props: {
-
-	},
 	methods: {
 		pageSwitch(val) {
 			this.$emit(val)
@@ -24,10 +21,9 @@ export default {
 <style scoped>
 td {
   border: 2px solid #ffff66;
-	
   text-align: right;
 }
-/* Pagination links */
+
 .pagination button {
   color: #ffff66;
   float: right;
@@ -39,12 +35,7 @@ td {
   transition: background-color .3s;
 }
 
-/* Style the active/current link 
-.pagination a.active {
-  background-color: dodgerblue;
-  color: white;
-}*/
-
-/* Add a grey background color on mouse-over */
-.pagination button:hover {background-color: rgb(36, 35, 35);}
+.pagination button:hover {
+	background-color: rgb(36, 35, 35);
+}
 </style>

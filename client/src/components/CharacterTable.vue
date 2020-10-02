@@ -42,31 +42,27 @@ export default {
 		nextPage() {
 			if (this.page < Math.ceil(this.count / 10)) {
 				this.updateTable(++this.page, this.searchString)
-				for(const row of this.$refs.rows) {
-					row.closeInfo()
-				}
+				this.closeRows()
 			}
 		},
 		previousPage() {
 			if (this.page > 1) {
 				this.updateTable(--this.page, this.searchString)
-				for(const row of this.$refs.rows) {
-					row.closeInfo()
-				}
+				this.closeRows()
 			}
 		},
 		async updateTable(page = 1, search = '') {
-			console.log('Page: ' + this.page)
 			const data = await Requests.getCharacters(page, search)
 			this.characters = data.results
 			this.count = data.count
-			console.log(this.characters)
-			console.log(this.count)
 		},
 		search(value = '') {
 			this.searchString = value
 			this.page = 1
 			this.updateTable(this.page, this.searchString)
+			this.closeRows()
+		},
+		closeRows() {
 			for(const row of this.$refs.rows) {
 				row.closeInfo()
 			}

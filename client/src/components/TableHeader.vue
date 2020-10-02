@@ -1,12 +1,12 @@
 <template>
 	<thead>
 		<tr>
-				<th>
-					<div class="tableTitle">
-						Characters
-					</div>
-					<input @input="search" placeholder="Search" type="text" v-model="searchString">
-				</th>
+			<th>
+				<div class="tableTitle">
+					Characters
+				</div>
+				<input @input="search" placeholder="Search" type="text" v-model="searchString">
+			</th>
 		</tr>
 	</thead>
 </template>
@@ -39,16 +39,20 @@ input {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
 input::placeholder {
 	color: rgb(230, 230, 230);
 }
+
 input:focus{
-    outline: none;
+  outline: none;
 }
+
 .tableTitle {
 	font-size: x-large;
 	margin-bottom: 10px;
 }
+
 th {
   border: 2px solid #ffff66;
   text-align: left;
