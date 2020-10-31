@@ -1,6 +1,9 @@
 # SWAPI_App
 
-## Setup
+## Heroku App
+https://swapi-app-prod.herokuapp.com/
+
+## Local Setup
 ```
 npm install
 ```
